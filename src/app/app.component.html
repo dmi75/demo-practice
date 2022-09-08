@@ -1,0 +1,24 @@
+<dx-toolbar [items]="toolbarContent"></dx-toolbar>
+<dx-drawer [openedStateMode]="selectedOpenMode" [position]="selectedPosition" [revealMode]="selectedRevealMode"
+  template="template" [(opened)]="isDrawerOpen" [height]="400" [closeOnOutsideClick]="true">
+  <div *dxTemplate="let data of 'template'" style="width: 200px">
+
+    <dx-list [items]="navigation" [width]="200" selectionMode="single" (onSelectionChanged)="this.isDrawerOpen = false"
+      [hoverStateEnabled]="true" class="panel-list dx-theme-accent-as-background-color" itemTemplate="navigation">
+      <div class="dx-list-item" *dxTemplate="let link of 'navigation'">
+        <a [routerLink]="['/' + link.path]">
+          <div>
+            <div class="dx-list-item-icon-container">
+              <i class="dx-icon dx-list-item-icon dx-icon-{{link.icon}}"></i>
+            </div>
+            <span style="color: #fff">{{ link.text }}</span>
+          </div>
+        </a>
+      </div>
+    </dx-list>
+
+  </div>
+  <div id="content" class="content" role="main" class="dx-theme-background-color">
+    <router-outlet></router-outlet>
+  </div>
+</dx-drawer>

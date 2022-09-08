@@ -1,0 +1,9 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.showBuildDuringDeployPrompt": false,
+    "appService.defaultWebAppToDeploy": "/subscriptions/17afe3cd-7b63-4a0a-b4f2-f66ce4a60383/microsoft.web/sites/subscriptions/17afe3cd-7b63-4a0a-b4f2-f66ce4a60383/resourceGroups/Azure_Training_MM_India/providers/Microsoft.Web/sites/test-dhanji-app",
+    "appService.deploySubpath": "dist\\demo-practice"
+}

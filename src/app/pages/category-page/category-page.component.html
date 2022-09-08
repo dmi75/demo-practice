@@ -1,0 +1,38 @@
+<div class="left">
+  <dx-list class="list" [dataSource]="dataSource" selectionMode="single"
+    (onSelectionChanged)="listSelectionChanged($event)">
+    <div *dxTemplate="let item of 'item'">
+      <div>
+        
+        <div class="hotel">
+          <div class="name">{{ item.catName }}</div>
+          <div class="address">{{ item.slug }}</div>
+          <img height="20px" weight="20px" src="{{'http://rjtmobile.com/grocery/images/' + item.catImage }}"
+          class="card-img-top">
+        </div>
+
+        <div class="price-container">
+          <div class="price">{{ item.catDescription }}</div>
+        </div>
+      </div>
+    </div>
+  </dx-list>
+</div>
+<div class="right" *ngIf="currentCategory">
+  <div class="header">
+    <div class="name-container" *ngIf="currentCategory.catImage">
+      <div class="name">{{ currentCategory.catName }}</div>
+      <img height="20px" weight="20px" src="{{'http://rjtmobile.com/grocery/images/' + currentCategory.catImage }}"
+      class="card-img-top">
+        <div class="address"> {{ currentCategory.slug }}</div>
+  <div class="description">{{ currentCategory.catDescription }}</div>
+    </div>
+  </div>
+  
+  <dx-tile-view class="tile" [dataSource]="subCategories" noDataText="" [height]="224" [baseItemHeight]="100"
+    [baseItemWidth]="137" [itemMargin]="12">
+    <div *dxTemplate="let item of 'item'">
+      <div class="tile-image">{{item.subName}}</div>
+    </div>
+  </dx-tile-view>
+</div>
